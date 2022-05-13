@@ -5,7 +5,7 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import SignInSignUpSVG from '../../assets/images/SignInOrSignUp.svg';
 import Button from '../components/Button';
 
-const SignIn = ({navigation}) => {
+const Dashboard = ({navigation}) => {
 
     const [activeInput, setActiveInput] = useState(null);
     const [showPassword, setShowPassword] = useState(false)
@@ -41,8 +41,19 @@ const SignIn = ({navigation}) => {
                         textAlign: 'center',
                         marginVertical: SIZES.base*2
                     }}>
-                        Sign In
+                      Hello
                     </Text>
+                    <View style={{marginBottom: SIZES.base}}>
+                        <Text style={{fontSize: 16, opacity: 0.5, marginBottom: SIZES.base}}>Full Name</Text>
+                        <TextInput onFocus={()=> setActiveInput('fullname')} style={{
+                            padding: SIZES.base,
+                            backgroundColor: COLORS.white,
+                            borderRadius: 5,
+                            paddingVertical: SIZES.base*1.5,
+                            borderWidth: 1.5,
+                            borderColor: activeInput == "fullname" ? COLORS.primary : COLORS.white
+                        }} />
+                    </View>
                     <View style={{marginBottom: SIZES.base}}>
                         <Text style={{fontSize: 16, opacity: 0.5, marginBottom: SIZES.base}}>Email Address</Text>
                         <TextInput onFocus={()=> setActiveInput('email')} style={{
@@ -82,16 +93,9 @@ const SignIn = ({navigation}) => {
                         </View>
                         
                     </View>
-                    
-                    {/* Forgon password link */}
-                    <Text style={{
-                        fontSize:16,
-                        opacity: 0.8, 
-                        textAlign: 'right',
-                        fontWeight: 'bold'
-                    }}>Forgot Password?</Text>
-                    <Button label={"Create Account"} isPrimary={true} handleOnPress={()=> navigation.navigate('DashboardScreen')}/>
-                   
+                    <Button label={"Create Account"} isPrimary={true} style={{
+                            marginVertical: SIZES.base*2
+                        }}/>
                         <View style={{
                             flexDirection: 'row',
                             justifyContent: 'center',
@@ -100,14 +104,14 @@ const SignIn = ({navigation}) => {
                         }}>
                             <Text style={{
                                 fontSize: 16
-                            }}>Don't have an account ?</Text>
+                            }}>Already have an account ?</Text>
                             <Text style={{
                                 fontSize: 16, fontWeight: 'bold', marginLeft: SIZES.base,
                                 color: COLORS.primary
                             }}
                             onPress={()=>{
-                                navigation.navigate('CreateAccountScreen')
-                            }}>Create Account</Text>
+                                navigation.navigate('SignInScreen')
+                            }}>Sign In</Text>
                         </View>
                 </View>
             </View>
@@ -115,4 +119,4 @@ const SignIn = ({navigation}) => {
     )
 }
 
-export default SignIn
+export default Dashboard

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { COLORS, SIZES } from '../constants';
-import WelcomeSVG from '../../assets/images/Welcome.svg';
+import WelcomeSVG from '../../assets/images/welcomeimg.svg';
 import Button from '../components/Button';
 
 const Welcome = ({navigation}) => {
@@ -25,7 +25,7 @@ const Welcome = ({navigation}) => {
                 <Text style={{
                     fontSize: 22,
                     marginVertical: SIZES.base*4
-                }}>Discover Amazing things!</Text>
+                }}>Pro Real Estate Management Solutions</Text>
                 {/* Buttons */}
                 <Button label={"Create Account"} isPrimary={true} handleOnPress={()=> navigation.navigate('CreateAccountScreen')}/>
                 <Button label={"Sign In"} isPrimary={false} handleOnPress={()=> navigation.navigate('SignInScreen')}/>
